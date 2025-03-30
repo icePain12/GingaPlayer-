@@ -9,6 +9,7 @@ from rich.console import Console
 from rich.table import Table
 from rich.text import Text
 from rich.progress import Progress, ProgressColumn, BarColumn, TaskProgressColumn, TextColumn
+__import__('pkg_resources').declare_namespace(__name__)
 
 #variables globaes
 # Constantes NO MODIFICAR.

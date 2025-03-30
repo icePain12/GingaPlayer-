@@ -3,8 +3,23 @@ import json
 import subprocess
 import winreg
 import shutil
+import sys
 
-import os
+#Variables Globales
+relative_path = os.path.join("sources", "img", "black_bg.png")
+absolute_path = ""
+opacity = 100
+# se planea cambiar esto a futuro
+background_image = absolute_path
+
+def resource_path(relative_path):
+    """ Get Absolute path to resource, works for dev and PyInstaller"""
+    try:
+        base_path= sys.MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.abspath(".")
+
 
 # Devuelve una ruta absoluta de una ruta relativa
 def get_absolute_path(relative_path: str) -> str:
@@ -15,13 +30,9 @@ def get_absolute_path(relative_path: str) -> str:
     :return: Ruta absoluta correspondiente.
     """
     return os.path.abspath(relative_path)
-#Variables Globales
-relative_path = "./sources/img/black_bg.png"
-absolute_path = get_absolute_path(relative_path)
-opacity = 100
-# se planea cambiar esto a futuro
-background_image = absolute_path
 
+absolute_path = get_absolute_path(relative_path)
+background_image = resource_path(relative_path)
 def detect_environment():
     """Detecta si el entorno es Windows Terminal, PowerShell o CMD."""
     if "WT_SESSION" in os.environ:
