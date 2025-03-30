@@ -28,4 +28,4 @@ Finally execute the following instruction:
 
 After it you should have a musicPlayer.exe file on project/dist
 
-Enjoy It.
+Enjoy It!
